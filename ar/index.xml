@@ -6,14 +6,5 @@
     <description>Recent content on مدونة ديزاد تاك</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://dztech.github.io/ar/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>https://dztech.github.io/ar/about/</link>
-      <pubDate>Thu, 22 Jul 2021 20:04:22 +0100</pubDate>
-      
-      <guid>https://dztech.github.io/ar/about/</guid>
-      <description>class test{ public String text; } </description>
-    </item>
-    
   </channel>
 </rss>

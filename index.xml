@@ -5,16 +5,6 @@
     <link>https://dztech.github.io/</link>
     <description>Recent content on DzTech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 22 Jul 2021 20:04:22 +0100</lastBuildDate><atom:link href="https://dztech.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>https://dztech.github.io/arabic/about/</link>
-      <pubDate>Thu, 22 Jul 2021 20:04:22 +0100</pubDate>
-      
-      <guid>https://dztech.github.io/arabic/about/</guid>
-      <description>class test{ public String text; } </description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://dztech.github.io/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

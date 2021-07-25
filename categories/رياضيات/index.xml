@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>DzTech Blog</title>
-    <link>https://dztech.github.io/</link>
-    <description>Recent content on DzTech Blog</description>
+    <title>رياضيات on DzTech Blog</title>
+    <link>https://dztech.github.io/categories/%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA/</link>
+    <description>Recent content in رياضيات on DzTech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Jul 2021 01:13:21 +0100</lastBuildDate><atom:link href="https://dztech.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 01:13:21 +0100</lastBuildDate><atom:link href="https://dztech.github.io/categories/%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graph Theory جسور كونيغسبيرغ و </title>
       <link>https://dztech.github.io/posts/konigsberg/</link>
@@ -15,15 +15,6 @@
       <guid>https://dztech.github.io/posts/konigsberg/</guid>
       <description>المدینة التي نعرفها حالیا كالینینغراد Kalingrad كانت تدعى كونیغسبرغ Königsberg وكانت جزءا من بروسیا . في القرن الثامن عشر ، ومثل العدید من المدن الكبرى الأخرى، كانت كونیغسبرغ مقسمة بنهر يدعى بريغيل. اشتملت على جزیرتین وسبعة جسور تربط بین مختلف الكتل الأرضية (اليابسة).
 في ذلك الوقت كان اللغز الشهیر هو إیجاد طریقة سیر عبر المدینة بحیث یتم اجتیاز كل جسر مرة واحدة فقط زعم كثیر من الأشخاص أنهم قد عثروا على مثل هذا المسار لكن عندما طلب منهم استذكاره، لا أحد كان قادرا على ذلك.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://dztech.github.io/about/</link>
-      <pubDate>Thu, 22 Jul 2021 20:04:22 +0100</pubDate>
-      
-      <guid>https://dztech.github.io/about/</guid>
-      <description>class test{ public String text; } </description>
     </item>
     
   </channel>

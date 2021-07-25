@@ -22,9 +22,29 @@
   </url><url>
     <loc>https://dztech.github.io/ar/posts/</loc>
     <lastmod>2021-07-22T23:48:41+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dztech.github.io/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="https://dztech.github.io/ar/posts/"
+                />
   </url><url>
     <loc>https://dztech.github.io/ar/categories/%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA/</loc>
     <lastmod>2021-07-22T23:48:41+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dztech.github.io/categories/%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ar"
+                href="https://dztech.github.io/ar/categories/%D8%B1%D9%8A%D8%A7%D8%B6%D9%8A%D8%A7%D8%AA/"
+                />
   </url><url>
     <loc>https://dztech.github.io/ar/</loc>
     <lastmod>2021-07-22T23:48:41+01:00</lastmod>
@@ -44,7 +64,7 @@
                 href="https://dztech.github.io/ar/"
                 />
   </url><url>
-    <loc>https://dztech.github.io/ar/posts/lesson1/</loc>
+    <loc>https://dztech.github.io/ar/posts/prisoner/</loc>
     <lastmod>2021-07-22T23:48:41+01:00</lastmod>
   </url><url>
     <loc>https://dztech.github.io/ar/about/</loc>

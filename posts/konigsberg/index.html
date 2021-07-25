@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Graph Theory جسور كونيغسبيرغ و  | DzTech Blog</title>
+<meta name="keywords" content="" />
+<meta name="description" content="المدینة التي نعرفها حالیا كالینینغراد Kalingrad كانت تدعى كونیغسبرغ Königsberg وكانت جزءا من بروسیا . في القرن الثامن عشر ، ومثل العدید من المدن الكبرى الأخرى، كانت كونیغسبرغ مقسمة بنهر يدعى بريغيل. اشتملت على جزیرتین وسبعة جسور تربط بین مختلف الكتل الأرضية (اليابسة).
+في ذلك الوقت كان اللغز الشهیر هو إیجاد طریقة سیر عبر المدینة بحیث یتم اجتیاز كل جسر مرة واحدة فقط زعم كثیر من الأشخاص أنهم قد عثروا على مثل هذا المسار لكن عندما طلب منهم استذكاره، لا أحد كان قادرا على ذلك.">
+<meta name="author" content="">
+<link rel="canonical" href="https://dztech.github.io/posts/konigsberg/" />
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.35cd0f65a15cafa92372b8313deef5960aae04b90ad722f2bbf509eb0468137e.css" integrity="sha256-Nc0PZaFcr6kjcrgxPe71lgquBLkK1yLyu/UJ6wRoE34=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://dztech.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://dztech.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://dztech.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://dztech.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://dztech.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.86.0" />
+<link rel="alternate" hreflang="en" href="https://dztech.github.io/posts/konigsberg/" />
+<meta property="og:title" content="Graph Theory جسور كونيغسبيرغ و " />
+<meta property="og:description" content="المدینة التي نعرفها حالیا كالینینغراد Kalingrad كانت تدعى كونیغسبرغ Königsberg وكانت جزءا من بروسیا . في القرن الثامن عشر ، ومثل العدید من المدن الكبرى الأخرى، كانت كونیغسبرغ مقسمة بنهر يدعى بريغيل. اشتملت على جزیرتین وسبعة جسور تربط بین مختلف الكتل الأرضية (اليابسة).
+في ذلك الوقت كان اللغز الشهیر هو إیجاد طریقة سیر عبر المدینة بحیث یتم اجتیاز كل جسر مرة واحدة فقط زعم كثیر من الأشخاص أنهم قد عثروا على مثل هذا المسار لكن عندما طلب منهم استذكاره، لا أحد كان قادرا على ذلك." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dztech.github.io/posts/konigsberg/" />
+<meta property="og:image" content="https://dztech.github.io/prisoner.jpg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-25T01:13:21&#43;01:00" />
+<meta property="article:modified_time" content="2021-07-25T01:13:21&#43;01:00" /><meta property="og:site_name" content="DzTech Blog" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://dztech.github.io/prisoner.jpg" />
+<meta name="twitter:title" content="Graph Theory جسور كونيغسبيرغ و "/>
+<meta name="twitter:description" content="المدینة التي نعرفها حالیا كالینینغراد Kalingrad كانت تدعى كونیغسبرغ Königsberg وكانت جزءا من بروسیا . في القرن الثامن عشر ، ومثل العدید من المدن الكبرى الأخرى، كانت كونیغسبرغ مقسمة بنهر يدعى بريغيل. اشتملت على جزیرتین وسبعة جسور تربط بین مختلف الكتل الأرضية (اليابسة).
+في ذلك الوقت كان اللغز الشهیر هو إیجاد طریقة سیر عبر المدینة بحیث یتم اجتیاز كل جسر مرة واحدة فقط زعم كثیر من الأشخاص أنهم قد عثروا على مثل هذا المسار لكن عندما طلب منهم استذكاره، لا أحد كان قادرا على ذلك."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://dztech.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Graph Theory جسور كونيغسبيرغ و ",
+      "item": "https://dztech.github.io/posts/konigsberg/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Graph Theory جسور كونيغسبيرغ و ",
+  "name": "Graph Theory جسور كونيغسبيرغ و ",
+  "description": "المدینة التي نعرفها حالیا كالینینغراد Kalingrad كانت تدعى كونیغسبرغ Königsberg وكانت جزءا من بروسیا . في القرن الثامن عشر ، ومثل العدید من المدن الكبرى الأخرى، كانت كونیغسبرغ مقسمة بنهر يدعى بريغيل. اشتملت على جزیرتین وسبعة جسور تربط بین مختلف الكتل الأرضية (اليابسة).\nفي ذلك الوقت كان اللغز الشهیر هو إیجاد طریقة سیر عبر المدینة بحیث یتم اجتیاز كل جسر مرة واحدة فقط زعم كثیر من الأشخاص أنهم قد عثروا على مثل هذا المسار لكن عندما طلب منهم استذكاره، لا أحد كان قادرا على ذلك.",
+  "keywords": [
+    
+  ],
+  "articleBody": "المدینة التي نعرفها حالیا كالینینغراد Kalingrad كانت تدعى كونیغسبرغ Königsberg وكانت جزءا من بروسیا . في القرن الثامن عشر ، ومثل العدید من المدن الكبرى الأخرى، كانت كونیغسبرغ مقسمة بنهر يدعى بريغيل. اشتملت على جزیرتین وسبعة جسور تربط بین مختلف الكتل الأرضية (اليابسة).\nفي ذلك الوقت كان اللغز الشهیر هو إیجاد طریقة سیر عبر المدینة بحیث یتم اجتیاز كل جسر مرة واحدة فقط زعم كثیر من الأشخاص أنهم قد عثروا على مثل هذا المسار لكن عندما طلب منهم استذكاره، لا أحد كان قادرا على ذلك. في سنة 1735 شرح عالم الریاضیات لیونارد أویلر لماذا مثل ذاك المسار لم یكن موجودا.\nحل أویلر بسیط بشكل مفاجئ حيث بمجرد إلقاء نظرة على المسألة بطریقة سلیمة- الخدعة تكمن في التخلص من كل المعلومات غیر الضروریة .لا یهم أي مسار نأخذه للمشي بین مختلف الكتل الأرضیة، لا یهم شكل الكتل الأرضیة، أو ما هو شكل النهر، أو ما هي شكل الجسور. وبالتالي بالإمكان تمثیل كل كتلة أرضیة بنقطة والجسر بخط .لیس علیك أن تكون دقیقا جغرافيا على الإطلاق طالما أنك لا تخل بالترابط بین النقاط، أيها مرتبط بالاخر يمكنك تحریف المنطقة بالطریقة التي تریدها من دون تغییر (أنظر الصورة).        بمجرد أن تستعرض المسألة بهذه الطریقة، تصبح معالمها أسهل بكثير، وبعد المحاولة في المسألة لفترة من الوقت قد تلاحظ الآتي: عندما تصل إلى نقطة عبر خط (دخول كتلة أرضیة أو یابسة عبر جسر)، ما لم تكن النقطة النهائیة أین ینتهي مسارك، أنت في حاجة لمغادرتها مرة أخرى، عن طریق خط مختلف، على أساس أن هذه هي قواعد اللعبة. وهذا یعني، أنه وباستثناء نقطة الانطلاق ونقطة النهایة، أي نقطة في مسارك یجب أن تشتمل على عدد زوجي من الخطوط الخارجة منها: من أجل كل خط تدخل عبره یجب أن یكون هناك واحد للخروج\nلیكون من الممكن، جعل خط سير یعبر كل خط بالضبط مرة واحدة، یمكن على الأكثر لنقطتین أن یكون َلها عدد فردي من الخطوط الخارجة منها. في الواقع یجب أن یكون هناك إما نقطتین فردیتین أو لا یوجد على الإطلاق. في الحالة الأولى النقطتان تتوافقان مع نقطتي الانطلاق والنهایة من السیر وفي الحالة الثانیة، نقطتي الانطلاق والنهایة هي نفسها .بینما في مسألة كونیغسبرغ، كل النقاط لها عدد فردي من الخطوط الخارجة منها. وبالتالي خط سير یعبر كل جسر مستحيل\nصاغت نتیجة أویلر بدایة نظریة المخططات Graph Theory أي دراسة شبكات مركبة من نقاط متصلة بواسطة خطوط أنت قادر أیضا على إظهار أن المخطط إذا كان یستوفي الشرط أعلاه، أي عدد النقاط التي لها عدد فردي من الخطوط هو إما صفر أو اثنین، سیكون هناك دائما مسار من خلاله یتم عبور كل خط بالضبط مرة واحدة.\n      ",
+  "wordCount" : "411",
+  "inLanguage": "en",
+  "image":"https://dztech.github.io/prisoner.jpg","datePublished": "2021-07-25T01:13:21+01:00",
+  "dateModified": "2021-07-25T01:13:21+01:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dztech.github.io/posts/konigsberg/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "DzTech Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dztech.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: #1d1e20;
+                --entry: #2e2e33;
+                --primary: rgba(255, 255, 255, 0.84);
+                --secondary: rgba(255, 255, 255, 0.56);
+                --tertiary: rgba(255, 255, 255, 0.16);
+                --content: rgba(255, 255, 255, 0.74);
+                --hljs-bg: #2e2e33;
+                --code-bg: #37383e;
+                --border: #333;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://dztech.github.io/" accesskey="h" title="DzTech Blog (Alt + H)">DzTech Blog</a>
+            <span class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+                <ul class="lang-switch"><li>|</li>
+                    <li>
+                        <a href="https://dztech.github.io/ar/" title="Ar"
+                            aria-label="Ar">Ar</a>
+                    </li>
+                    <li>
+                        <a href="https://dztech.github.io/fr/" title="Fr"
+                            aria-label="Fr">Fr</a>
+                    </li>
+                </ul>
+            </span>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://dztech.github.io/cs/" title="Computer Science">
+                    <span>Computer Science</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://dztech.github.io/math/" title="Math">
+                    <span>Math</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://dztech.github.io/about/" title="about us">
+                    <span>about us</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Graph Theory جسور كونيغسبيرغ و 
+    </h1>
+    <div class="post-meta">July 25, 2021
+</div>
+  </header> 
+<figure class="entry-cover"><img loading="lazy" src="https://dztech.github.io/prisoner.jpg" alt="Graph Theory جسور كونيغسبيرغ و">
+        <p>Graph Theory جسور كونيغسبيرغ و</p>
+</figure>
+  <div class="post-content"><p style="margin-bottom: 0.11in; line-height: 107%; page-break-before: always">
+<font face="Arial, sans-serif"><span lang="ar-SA"><font color="#000000"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">المدینة
+التي نعرفها حالیا كالینینغراد </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">Kalingrad
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">كانت
+تدعى كونیغسبرغ </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">Königsberg
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">وكانت
+جزءا من بروسیا </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">في
+القرن الثامن عشر ، ومثل العدید من المدن
+الكبرى الأخرى، كانت كونیغسبرغ مقسمة
+بنهر يدعى بريغيل</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">اشتملت
+على جزیرتین وسبعة جسور تربط بین مختلف
+الكتل الأرضية </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">(</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">اليابسة</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">).</font></font></font></p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><font face="Arial, sans-serif"><span lang="ar-SA"><font color="#000000"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">في
+ذلك الوقت كان اللغز الشهیر هو إیجاد
+طریقة سیر عبر المدینة بحیث یتم اجتیاز
+كل جسر مرة واحدة فقط زعم كثیر من الأشخاص
+أنهم قد عثروا على مثل هذا المسار لكن
+عندما طلب منهم استذكاره، لا أحد كان
+قادرا على ذلك</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">في
+سنة </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">1735
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">شرح
+عالم الریاضیات لیونارد أویلر لماذا مثل
+ذاك المسار لم یكن موجودا</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.</font></font></font></p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><font face="Arial, sans-serif"><span lang="ar-SA"><font color="#000000"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">حل
+أویلر بسیط بشكل مفاجئ حيث بمجرد إلقاء
+نظرة على المسألة بطریقة سلیمة</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">-
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">الخدعة
+تكمن في التخلص من كل المعلومات غیر
+الضروریة </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">لا
+یهم أي مسار نأخذه للمشي بین مختلف الكتل
+الأرضیة، لا یهم شكل الكتل الأرضیة، أو
+ما هو شكل النهر، أو ما هي شكل الجسور</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">وبالتالي
+بالإمكان تمثیل كل كتلة أرضیة بنقطة
+والجسر بخط </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">لیس
+علیك أن تكون دقیقا جغرافيا على الإطلاق
+طالما أنك لا تخل بالترابط بین النقاط،
+أيها مرتبط بالاخر يمكنك تحریف المنطقة
+بالطریقة التي تریدها من دون تغییر </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">(</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">أنظر
+الصورة</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">).
+</font></font></font>
+</p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><br/>
+<br/>
+</p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><br/>
+<br/>
+</p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><br/>
+<br/>
+</p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><font color="#000000">
+<font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">بمجرد
+أن تستعرض المسألة بهذه الطریقة، تصبح
+معالمها أسهل بكثير، وبعد المحاولة في
+المسألة لفترة من الوقت قد تلاحظ الآتي</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">:
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">عندما
+تصل إلى نقطة عبر خط </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">(</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">دخول
+كتلة أرضیة أو یابسة عبر جسر</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">)</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">،
+ما لم تكن النقطة النهائیة أین ینتهي
+مسارك، أنت في حاجة لمغادرتها مرة أخرى،
+عن طریق خط مختلف، على أساس أن هذه هي
+قواعد اللعبة</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">وهذا
+یعني، أنه وباستثناء نقطة الانطلاق ونقطة
+النهایة، أي نقطة في مسارك یجب أن تشتمل
+على عدد زوجي من الخطوط الخارجة منها</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">:
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">من
+أجل كل خط تدخل عبره یجب أن یكون هناك واحد
+للخروج</font></font></font></span></font></p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><font face="Arial, sans-serif"><span lang="ar-SA"><font color="#000000"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">لیكون
+من الممكن، جعل خط سير یعبر كل خط بالضبط
+مرة واحدة، یمكن على الأكثر لنقطتین أن
+یكون َلها عدد فردي من الخطوط الخارجة
+منها</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">في
+الواقع یجب أن یكون هناك إما نقطتین
+فردیتین أو لا یوجد على الإطلاق</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">في
+الحالة الأولى النقطتان تتوافقان مع
+نقطتي الانطلاق والنهایة من السیر وفي
+الحالة الثانیة، نقطتي الانطلاق والنهایة
+هي نفسها </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">بینما
+في مسألة كونیغسبرغ، كل النقاط لها عدد
+فردي من الخطوط الخارجة منها</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.
+</font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">وبالتالي
+خط سير یعبر كل جسر مستحيل</font></font></font></span></font></p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><font face="Arial, sans-serif"><span lang="ar-SA"><font color="#000000"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">صاغت
+نتیجة أویلر بدایة نظریة المخططات </font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">Graph
+Theory </font></font><font face="Arial, sans-serif"><span lang="ar-SA"><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">أي
+دراسة شبكات مركبة من نقاط متصلة بواسطة
+خطوط أنت قادر أیضا على إظهار أن المخطط
+إذا كان یستوفي الشرط أعلاه، أي عدد النقاط
+التي لها عدد فردي من الخطوط هو إما صفر
+أو اثنین، سیكون هناك دائما مسار من خلاله
+یتم عبور كل خط بالضبط مرة واحدة</font></font></span></font><font face="Arial, sans-serif"><font size="4" style="font-size: 14pt">.</font></font></font></p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><br/>
+<br/>
+</p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><br/>
+<br/>
+</p>
+<p style="margin-bottom: 0.11in; line-height: 107%"><br/>
+<br/>
+</p>
+
+  </div>
+  <footer class="post-footer">
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>&copy; 2021 <a href="https://dztech.github.io/">DzTech Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
